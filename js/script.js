@@ -26,23 +26,14 @@ function searchCountry() {
 function showCountriesList(resp) {
     countriesList.innerHTML = '';
     if (!resp.length) {
-        var li = document.createElement('li');
-        li.innerText = 'No data';
-        countriesList.appendChild(li);
+        var liElement = document.createElement('li');
+        liElement.innerText = 'No data';
+        countriesList.appendChild(liElement);
     } else {
     resp.forEach(function(item) {
         var liElement = document.createElement('li');
-        var liContent = Mustache.render(template, {
-            name: item.name,
-            capital: item.capital,
-            population: item.population,
-            area: item.area,
-            nativeName: item.nativeName,
-            altSpellings: item.altSpellings,
-            languages: item.languages
-        })
+        var liContent = Mustache.render(template, item)
         liElement.innerHTML = liContent;
-
         countriesList.appendChild(liElement);
     });
 }
