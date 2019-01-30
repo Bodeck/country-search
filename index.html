@@ -11,12 +11,28 @@
 
 <body>
     <h1>Country search engine</h1>
-    <button id="search">Search a country</button>
     <input id="country-name" type="text" />
+    <button id="search">Search a country</button>
     <h2>List of countries</h2>
     <ul id="countries">
         <li>No data</li>
     </ul>
+    <!-- temlate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <div class="country-info">
+        <script id="country-template" type="x-tmpl-mustache">
+            <h3 class="name">{{name}}</h3>
+            <ul class="country-details">
+                <h4>Background details</h4>
+                <li>Capital: <span class="data">{{capital}}</span></li>
+                <li>Population: <span class="data">{{population}}</span></li>
+                <li>Area: <span class="data">{{area}}</span></li>
+                <li>Native Name: <span class="data">{{nativeName}}</span></li>
+                <li>Alternative Spelling: <span class="data">{{altSpellings}}</span></li>
+                <li>Languages: <span class="data">{{languages}}</span></li>
+            </ul>
+        </div>
+    </script>
     <script src="js/script.js"></script>
 </body>
 
