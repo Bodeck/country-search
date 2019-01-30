@@ -15,13 +15,21 @@ function searchCountry() {
     if (!countryName.length) {countryName = 'Poland'};
     fetch(url + countryName)
         .then(function(response){
-            return response.json();
+                return response.json();
         })
-        .then(showCountriesList);
+        .then(showCountriesList)
+        .catch(function(err){
+            alert(err);
+        });
 }
 
 function showCountriesList(resp) {
     countriesList.innerHTML = '';
+    if (!resp.length) {
+        var li = document.createElement('li');
+        li.innerText = 'No data';
+        countriesList.appendChild(li);
+    } else {
     resp.forEach(function(item) {
         var liElement = document.createElement('li');
         var liContent = Mustache.render(template, {
@@ -34,7 +42,8 @@ function showCountriesList(resp) {
             languages: item.languages
         })
         liElement.innerHTML = liContent;
-        
+
         countriesList.appendChild(liElement);
     });
+}
 }
