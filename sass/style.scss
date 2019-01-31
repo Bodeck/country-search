@@ -1,0 +1,29 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    h1 {
+        text-align: center;
+    }
+    input{
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    button{
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    ul {
+        list-style: none;
+    }
+    .country-details {
+        border-bottom: dashed 1px grey;
+        padding-bottom: 5px;
+    }
+}
